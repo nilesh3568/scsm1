@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shri Chhatrapati Shivaji Mahavidyalaya</title>
+
+<!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+:root{
+    --primary-color:#9C2007;
+}
+
+/* ================= COLLEGE HEADER ================= */
+.top-header{
+    text-align:center;
+    padding:20px 10px;
+    background:#ffffff;
+}
+
+.top-header h6{
+    font-size:16px;
+    margin:0;
+}
+
+.top-header h3{
+    font-weight:bold;
+    color:var(--primary-color);
+    margin:5px 0;
+}
+
+.top-header p{
+    font-size:14px;
+    margin:0;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+    background:var(--primary-color);
+}
+
+.navbar .nav-link{
+    color:#fff !important;
+    font-weight:500;
+    cursor:pointer !important;
+}
+
+.navbar .nav-link:hover{
+    color:#ffd700 !important;
+}
+
+/* Make Navbar Sticky */
+.sticky-nav{
+    position:fixed;
+    top:0;
+    width:100%;
+    z-index:999;
+}
+
+.nav-padding{
+    padding-top:20px;
+}
+
+/* ================= SLIDER ================= */
+/* Desktop */
+.carousel-item img{
+    width:100%;
+    height:80vh;
+    object-fit:cover;
+}
+
+/* Mobile & Tablet: full width, natural height */
+@media(max-width:992px){
+    .carousel-item img{
+        width:100%;
+        height:auto;
+        object-fit:contain;
+    }
+
+    /* Adjust header font for small screens */
+    .top-header h6{
+        font-size:13px;
+    }
+
+    .top-header h3{
+        font-size:18px;
+    }
+
+    .top-header p{
+        font-size:12px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- ================= COLLEGE NAME SECTION ================= -->
+<div class="top-header">
+    <h6>Shri Chhatrapati Shivaji Shikshan Sanstha's</h6>
+    <h3>Shri Chhatrapati Shivaji Mahavidyalaya</h3>
+    <p>Shivajinagar, Shrigonda, Dist. Ahmednagar, Pin-413701</p>
+</div>
+
+<!-- ================= NAVBAR (UNCHANGED) ================= -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg">
+<div class="container">
+
+    <button class="navbar-toggler bg-light"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#menu">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-center" id="menu">
+        <ul class="navbar-nav gap-4">
+
+            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item">Vision & Mission</a></li>
+                    <li><a class="dropdown-item">Management</a></li>
+                </ul>
+            </li>
+
+            <li class="nav-item"><a class="nav-link">Academics</a></li>
+            <li class="nav-item"><a class="nav-link">Admission</a></li>
+            <li class="nav-item"><a class="nav-link">Events</a></li>
+            <li class="nav-item"><a class="nav-link">Faculty</a></li>
+            <li class="nav-item"><a class="nav-link">Contact</a></li>
+
+        </ul>
+    </div>
+
+</div>
+</nav>
+
+<!-- ================= SLIDER ================= -->
+<div id="collegeSlider" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+
+        <div class="carousel-item active">
+            <img src="photos/1.jpg" class="w-100" alt="Slide 1">
+        </div>
+
+        <div class="carousel-item">
+            <img src="photos/2.jpg" class="w-100" alt="Slide 2">
+        </div>
+
+        <div class="carousel-item">
+            <img src="photos/3.jpg" class="w-100" alt="Slide 3">
+        </div>
+
+        <div class="carousel-item">
+            <img src="photos/4.jpg" class="w-100" alt="Slide 4">
+        </div>
+
+    </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Sticky Navbar Script -->
+<script>
+const navbar = document.getElementById("mainNavbar");
+const headerHeight = document.querySelector(".top-header").offsetHeight;
+
+window.addEventListener("scroll", function(){
+    if(window.scrollY > headerHeight){
+        navbar.classList.add("sticky-nav");
+        document.body.classList.add("nav-padding");
+    } else {
+        navbar.classList.remove("sticky-nav");
+        document.body.classList.remove("nav-padding");
+    }
+});
+</script>
+
+</body>
+</html>
