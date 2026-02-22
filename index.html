@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Shri Chhatrapati Shivaji Mahavidyalaya</title>
 
-<!-- Bootstrap 5 -->
+<!-- Bootstrap 5 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
@@ -13,7 +13,7 @@
     --primary-color:#9C2007;
 }
 
-/* ================= COLLEGE HEADER ================= */
+/* ================= HEADER ================= */
 .top-header{
     text-align:center;
     padding:20px 10px;
@@ -44,14 +44,30 @@
 .navbar .nav-link{
     color:#fff !important;
     font-weight:500;
-    cursor:pointer !important;
 }
 
 .navbar .nav-link:hover{
     color:#ffd700 !important;
 }
 
-/* Make Navbar Sticky */
+.navbar-toggler{
+    border:none;
+}
+
+.navbar-toggler:focus{
+    box-shadow:none;
+}
+
+/* Reduce space between tabs */
+.navbar-nav .nav-item{
+    margin-right:15px;
+}
+
+.navbar-nav .nav-item:last-child{
+    margin-right:0;
+}
+
+/* Sticky Navbar */
 .sticky-nav{
     position:fixed;
     top:0;
@@ -60,26 +76,59 @@
 }
 
 .nav-padding{
-    padding-top:20px;
+    padding-top:70px;
 }
 
 /* ================= SLIDER ================= */
-/* Desktop */
 .carousel-item img{
     width:100%;
     height:80vh;
     object-fit:cover;
 }
 
-/* Mobile & Tablet: full width, natural height */
+/* ================= NOTICE BAR ================= */
+.notice-bar{
+    background:var(--primary-color);
+    overflow:hidden;
+    padding:10px 0;
+}
+
+.marquee-wrapper{
+    display:flex;
+    align-items:center;
+    overflow:hidden;
+}
+
+.marquee-content{
+    display:flex;
+    gap:40px;
+    animation:scroll-left 20s linear infinite;
+}
+
+.marquee-content a{
+    color:#fff;
+    text-decoration:none;
+    white-space:nowrap;
+    font-size:15px;
+}
+
+.notice-bar:hover .marquee-content{
+    animation-play-state: paused;
+}
+
+@keyframes scroll-left{
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* ================= RESPONSIVE ================= */
 @media(max-width:992px){
+
     .carousel-item img{
-        width:100%;
         height:auto;
         object-fit:contain;
     }
 
-    /* Adjust header font for small screens */
     .top-header h6{
         font-size:13px;
     }
@@ -91,47 +140,63 @@
     .top-header p{
         font-size:12px;
     }
+
+    .nav-padding{
+        padding-top:60px;
+    }
+
+    /* Left align mobile menu */
+    .navbar-nav{
+        text-align:left !important;
+    }
 }
 </style>
 </head>
+
 <body>
 
-<!-- ================= COLLEGE NAME SECTION ================= -->
+<!-- ================= HEADER ================= -->
 <div class="top-header">
     <h6>Shri Chhatrapati Shivaji Shikshan Sanstha's</h6>
     <h3>Shri Chhatrapati Shivaji Mahavidyalaya</h3>
     <p>Shivajinagar, Shrigonda, Dist. Ahmednagar, Pin-413701</p>
 </div>
 
-<!-- ================= NAVBAR (UNCHANGED) ================= -->
-<nav id="mainNavbar" class="navbar navbar-expand-lg">
+<!-- ================= NAVBAR ================= -->
+<nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark">
 <div class="container">
 
-    <button class="navbar-toggler bg-light"
+    <!-- Hamburger Button -->
+    <button class="navbar-toggler"
         type="button"
         data-bs-toggle="collapse"
         data-bs-target="#menu">
         <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse justify-content-center" id="menu">
-        <ul class="navbar-nav gap-4">
+    <!-- Menu -->
+    <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto">
 
-            <li class="nav-item"><a class="nav-link" href="#">Home</a></li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Home</a>
+            </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown">About</a>
+                <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">
+                    About
+                </a>
                 <ul class="dropdown-menu">
-                    <li><a class="dropdown-item">Vision & Mission</a></li>
-                    <li><a class="dropdown-item">Management</a></li>
+                    <li><a class="dropdown-item" href="#">Vision & Mission</a></li>
+                    <li><a class="dropdown-item" href="#">Management</a></li>
                 </ul>
             </li>
 
-            <li class="nav-item"><a class="nav-link">Academics</a></li>
-            <li class="nav-item"><a class="nav-link">Admission</a></li>
-            <li class="nav-item"><a class="nav-link">Events</a></li>
-            <li class="nav-item"><a class="nav-link">Faculty</a></li>
-            <li class="nav-item"><a class="nav-link">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Academics</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Admission</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Events</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Faculty</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
 
         </ul>
     </div>
@@ -144,21 +209,34 @@
     <div class="carousel-inner">
 
         <div class="carousel-item active">
-            <img src="1.JPG" class="w-100" alt="Slide 1">
+            <img src="photos/1.JPG" alt="Slide 1">
         </div>
 
         <div class="carousel-item">
-            <img src="2.JPG" class="w-100" alt="Slide 2">
+            <img src="photos/2.JPG" alt="Slide 2">
         </div>
 
         <div class="carousel-item">
-            <img src="3.JPG" class="w-100" alt="Slide 3">
+            <img src="photos/3.JPG" alt="Slide 3">
         </div>
 
         <div class="carousel-item">
-            <img src="4.JPG" class="w-100" alt="Slide 4">
+            <img src="photos/4.JPG" alt="Slide 4">
         </div>
 
+    </div>
+</div>
+
+<!-- ================= NOTICE BAR ================= -->
+<div class="notice-bar">
+    <div class="container marquee-wrapper">
+        <div class="marquee-content">
+            <a href="#">Admissions Open for 2026-27</a>
+            <a href="#">FYBA/FYBSc/FYBCom Admission Last Date: 15 March</a>
+            <a href="#">Internal Exam Schedule Released</a>
+            <a href="#">Annual Sports Event on 25th February</a>
+            <a href="#">Scholarship Form Submission Started</a>
+        </div>
     </div>
 </div>
 
@@ -182,7 +260,4 @@ window.addEventListener("scroll", function(){
 </script>
 
 </body>
-
 </html>
-
-
